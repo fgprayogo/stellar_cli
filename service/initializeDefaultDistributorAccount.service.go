@@ -8,7 +8,7 @@ import (
 	"github.com/stellar/go/txnbuild"
 )
 
-//ChangeTrust creates and submits the create trust operation
+//InitializeDefaultDistributorAccount creates Distributor account
 func InitializeDefaultDistributorAccount(SenderKeypair *keypair.Full, ReceiverPublicKey string,
 	client *horizonclient.Client) <-chan string {
 	

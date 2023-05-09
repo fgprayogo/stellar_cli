@@ -8,7 +8,7 @@ import (
 	"github.com/stellar/go/txnbuild"
 )
 
-//FundDistributor creates and submits the payment operation to fund the distributor
+//TransferToken creates and submits the transfer of a token
 func TransferToken(SenderKeypair *keypair.Full, ReceiverPublicKey string, IssuerPublicKey string, amount string, tokenSymbol string,
 	client *horizonclient.Client) <-chan string {
 
@@ -16,7 +16,7 @@ func TransferToken(SenderKeypair *keypair.Full, ReceiverPublicKey string, Issuer
 
 	go func() {
 		defer close(res)
-		// Get information about the Distributor account
+		// Get information about the Distributo/Sender account
 		accountRequest := horizonclient.AccountRequest{AccountID: SenderKeypair.Address()}
 		Account, err := client.AccountDetail(accountRequest)
 		if err != nil {

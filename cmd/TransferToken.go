@@ -14,26 +14,26 @@ import (
 )
 
 func init() {
-	// Create the 'CreateToken' command
+	// Create the 'TransferToken' command
 	transferTokenCmd := &cobra.Command{
 		Use:   "TransferToken",
 		Short: "Create a new Stellar token",
 		Run:   transferToken,
 	}
 
-	// Add the flags for 'CreateToken' command
+	// Add the flags for 'TransferToken' command
 	transferTokenCmd.Flags().StringVarP(&senderSecret, "sender", "s", "", "The secret key of the sender account")
 	transferTokenCmd.MarkFlagRequired("sender")
 	transferTokenCmd.Flags().StringVarP(&receiverPublicKey, "receiver", "r", "", "The receiver of the new token")
 	transferTokenCmd.MarkFlagRequired("receiver")
-	transferTokenCmd.Flags().StringVarP(&tokenSymbol, "token", "t", "", "The secret key of the token account")
+	transferTokenCmd.Flags().StringVarP(&tokenSymbol, "token", "t", "", "The token symbol")
 	transferTokenCmd.MarkFlagRequired("token")
-	transferTokenCmd.Flags().StringVarP(&issuerPublicKey, "issuer", "i", "", "The secret key of the issuer account")
+	transferTokenCmd.Flags().StringVarP(&issuerPublicKey, "issuer", "i", "", "The public key of the issuer account")
 	transferTokenCmd.MarkFlagRequired("issuer")
-	transferTokenCmd.Flags().StringVarP(&amount, "amount", "a", "", "The secret key of the amount account")
+	transferTokenCmd.Flags().StringVarP(&amount, "amount", "a", "", "The amount of the token")
 	transferTokenCmd.MarkFlagRequired("amount")
 
-	// Add the 'CreateToken' command to the root command
+	// Add the 'TransferToken' command to the root command
 	rootCmd.AddCommand(transferTokenCmd)
 }
 

@@ -8,7 +8,7 @@ import (
 	"github.com/stellar/go/txnbuild"
 )
 
-//FundDistributor creates and submits the payment operation to fund the distributor
+//MintToken creates and submits the minting of a token
 func MintToken(IssuerKeypair *keypair.Full, DistributorPublicKey string, amount string, tokenSymbol string,
 	client *horizonclient.Client) <-chan string {
 

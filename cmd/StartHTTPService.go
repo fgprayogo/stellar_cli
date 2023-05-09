@@ -12,8 +12,7 @@ import (
 // StartHTTPServiceCmd represents the StartHTTPService command
 var StartHTTPServiceCmd = &cobra.Command{
 	Use:   "StartHTTPService",
-	Short: "A brief description of your command",
-	Long: `a`,
+	Short: "Start the HTTP Service",
 	Run: func(cmd *cobra.Command, args []string) {
 		controller.Init()
 

@@ -14,24 +14,24 @@ import (
 )
 
 func init() {
-	// Create the 'CreateToken' command
+	// Create the 'ChangeTrustline' command
 	changeTrustlineCmd := &cobra.Command{
 		Use:   "ChangeTrustline",
-		Short: "Create a new Stellar token",
+		Short: "Change trustline",
 		Run:   changeTrusline,
 	}
 
-	// Add the flags for 'CreateToken' command
-	changeTrustlineCmd.Flags().StringVarP(&accountSecret, "account", "n", "", "The account of the new token")
+	// Add the flags for 'ChangeTrustline' command
+	changeTrustlineCmd.Flags().StringVarP(&accountSecret, "account", "n", "", "The account secret key")
 	changeTrustlineCmd.MarkFlagRequired("account")
-	changeTrustlineCmd.Flags().StringVarP(&tokenSymbol, "token", "t", "", "The secret key of the token account")
+	changeTrustlineCmd.Flags().StringVarP(&tokenSymbol, "token", "t", "", "The token symbol")
 	changeTrustlineCmd.MarkFlagRequired("token")
-	changeTrustlineCmd.Flags().StringVarP(&issuerPublicKey, "issuer", "i", "", "The secret key of the issuer account")
+	changeTrustlineCmd.Flags().StringVarP(&issuerPublicKey, "issuer", "i", "", "The public key of the issuer account")
 	changeTrustlineCmd.MarkFlagRequired("issuer")
-	changeTrustlineCmd.Flags().StringVarP(&limit, "limit", "l", "", "The secret key of the limit account")
+	changeTrustlineCmd.Flags().StringVarP(&limit, "limit", "l", "", "The limit of the trust")
 	changeTrustlineCmd.MarkFlagRequired("limit")
 
-	// Add the 'CreateToken' command to the root command
+	// Add the 'ChangeTrustline' command to the root command
 	rootCmd.AddCommand(changeTrustlineCmd)
 }
 

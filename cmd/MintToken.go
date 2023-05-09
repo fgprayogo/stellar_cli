@@ -14,24 +14,24 @@ import (
 )
 
 func init() {
-	// Create the 'CreateToken' command
+	// Create the 'MintToken' command
 	mintTokenCmd := &cobra.Command{
 		Use:   "MintToken",
-		Short: "Create a new Stellar token",
+		Short: "Mint token",
 		Run:   mintToken,
 	}
 
-	// Add the flags for 'CreateToken' command
+	// Add the flags for 'MintToken' command
 	mintTokenCmd.Flags().StringVarP(&issuerSecret, "issuer", "i", "", "The secret key of the issuer account")
 	mintTokenCmd.MarkFlagRequired("issuer")
-	mintTokenCmd.Flags().StringVarP(&distributorSecret, "distributor", "d", "", "The distributor of the new token")
+	mintTokenCmd.Flags().StringVarP(&distributorSecret, "distributor", "d", "", "The secret key of the distributor")
 	mintTokenCmd.MarkFlagRequired("distributor")
-	mintTokenCmd.Flags().StringVarP(&tokenSymbol, "token", "t", "", "The secret key of the token account")
+	mintTokenCmd.Flags().StringVarP(&tokenSymbol, "token", "t", "", "The account symbol")
 	mintTokenCmd.MarkFlagRequired("token")
-	mintTokenCmd.Flags().StringVarP(&amount, "amount", "a", "", "The secret key of the amount account")
+	mintTokenCmd.Flags().StringVarP(&amount, "amount", "a", "", "The amount")
 	mintTokenCmd.MarkFlagRequired("amount")
 
-	// Add the 'CreateToken' command to the root command
+	// Add the 'MintToken' command to the root command
 	rootCmd.AddCommand(mintTokenCmd)
 }
 
