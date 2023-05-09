@@ -44,7 +44,7 @@ Develop a backend service in Golang that allows interaction with the Stellar net
 # Build The Project
   
 1. Type this command
-`go build`
+`go build` .
 This command will create 	`stellar_cli` binary file
 
 # Use Case Testing
